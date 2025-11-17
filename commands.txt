@@ -1,0 +1,13 @@
+//functional
+iverilog -t vvp functional_simulation.v -o out
+vvp out
+
+//unit delay
+iverilog -t vvp unit_gate_delay_simulation.v -o outDelay
+vvp outDelay
+
+//5000 random unit delay
+iverilog -t vvp -DUNIT unit_gate_delay_simulation.v -o out5000
+vvp out5000 > out5000.txt
+python3 out5000.txt
+  
